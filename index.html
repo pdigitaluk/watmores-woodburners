@@ -32,6 +32,23 @@
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<!-- EMBER STYLES -->
+<style>
+@keyframes ember-fall {
+  0%   { transform: translateY(-20px) translateX(0px); opacity: 0; }
+  5%   { opacity: 1; }
+  85%  { opacity: 0.6; }
+  100% { transform: translateY(100vh) translateX(var(--drift)); opacity: 0; }
+}
+.ember {
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ember-fall linear infinite;
+}
+</style>
 </head>
 <body>
 
@@ -60,6 +77,8 @@
 <section class="hero">
   <div class="hero-bg-line"></div>
   <div class="hero-teal-bar"></div>
+  <!-- EMBERS -->
+  <div id="embers"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">Norwich &amp; Norfolk</div>
@@ -271,6 +290,34 @@
     </div>
   </div>
 </footer>
+
+<!-- EMBER SCRIPT -->
+<script>
+  const container = document.getElementById('embers');
+  const colors = ['#F04D27', '#e06020', '#ff7040', '#ffaa60', '#cc3a10'];
+  for (let i = 0; i < 38; i++) {
+    const e = document.createElement('div');
+    e.className = 'ember';
+    const size  = Math.random() * 3 + 1.5;
+    const left  = Math.random() * 100;
+    const dur   = Math.random() * 12 + 8;
+    const delay = Math.random() * 14 * -1;
+    const drift = (Math.random() * 80 - 40).toFixed(0) + 'px';
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    e.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${left}%;
+      --drift: ${drift};
+      animation-duration: ${dur}s;
+      animation-delay: ${delay}s;
+      background: ${color};
+      box-shadow: 0 0 ${size * 2}px ${color};
+      opacity: 0;
+    `;
+    container.appendChild(e);
+  }
+</script>
 
 </body>
 </html>
