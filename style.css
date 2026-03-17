@@ -225,6 +225,13 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
 .footer-bottom p{font-size:0.65rem;color:rgba(255,255,255,0.15);letter-spacing:0.5px}
 
 /* ── RESPONSIVE ── */
+/* ── PHOTO BAND ── */
+.photo-band{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:#000}
+.photo-band-3{grid-template-columns:repeat(3,1fr)}
+.photo-band img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;filter:brightness(0.88);transition:filter .3s}
+.photo-band img:hover{filter:brightness(1)}
+.photo-full img{width:100%;aspect-ratio:21/9;object-fit:cover;display:block;filter:brightness(0.88)}
+
 @media(max-width:1024px){
   nav{padding:0 2rem}
   .hero,.hero-inner-page,.sec,.cta-band,footer{padding-left:2rem;padding-right:2rem}
