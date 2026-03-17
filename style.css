@@ -226,13 +226,13 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
 .footer-bottom p{font-size:0.65rem;color:rgba(255,255,255,0.15);letter-spacing:0.5px}
 
 /* ── RESPONSIVE ── */
-/* ── PHOTO BAND ── */
-.photo-band{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:1200px;margin:0 auto;padding:3rem 3.5rem}
-.photo-band-3{grid-template-columns:repeat(3,1fr)}
-.photo-band img{width:100%;height:340px;object-fit:cover;display:block;filter:brightness(0.88);transition:filter .3s}
-.photo-band img:hover{filter:brightness(1)}
-.photo-full{max-width:1200px;margin:0 auto;padding:3rem 3.5rem 0}
-.photo-full img{width:100%;height:420px;object-fit:cover;display:block;filter:brightness(0.85)}
+/* ── PHOTO SECTIONS ── */
+.photo-section{background:var(--black);padding:0 3.5rem 3rem}
+.photo-section-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.photo-section-inner img{width:100%;height:280px;object-fit:cover;display:block;filter:brightness(0.85);transition:filter .3s}
+.photo-section-inner img:hover{filter:brightness(1)}
+.photo-full-section{background:var(--black);padding:0 3.5rem 3rem}
+.photo-full-section img{max-width:1200px;margin:0 auto;display:block;width:100%;height:340px;object-fit:cover;filter:brightness(0.82)}
 
 @media(max-width:1024px){
   nav{padding:0 2rem}
@@ -243,10 +243,10 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .services-grid,.stove-grid,.pricing-grid,.testi-grid,.why-grid,.included-grid{grid-template-columns:repeat(2,1fr)}
   .footer-top{grid-template-columns:1fr 1fr;gap:3rem}
   .contact-layout{grid-template-columns:1fr;gap:3rem}
-  .photo-band{padding:2rem 2rem}
-  .photo-full{padding:2rem 2rem 0}
-  .photo-band img{height:260px}
-  .photo-full img{height:320px}
+  .photo-section{padding:0 2rem 2rem}
+  .photo-full-section{padding:0 2rem 2rem}
+  .photo-section-inner img{height:220px}
+  .photo-full-section img{height:260px}
 }
 @media(max-width:640px){
   nav{padding:0 1.5rem}
@@ -257,8 +257,9 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .services-grid,.stove-grid,.pricing-grid,.testi-grid,.why-grid,.included-grid{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr;gap:2.5rem}
   .form-row{grid-template-columns:1fr}
-  .photo-band,.photo-band-3{grid-template-columns:1fr;padding:1.5rem 1.5rem}
-  .photo-full{padding:1.5rem 1.5rem 0}
-  .photo-band img{height:220px}
-  .photo-full img{height:220px}
+  .photo-section{padding:0 1.5rem 1.5rem}
+  .photo-full-section{padding:0 1.5rem 1.5rem}
+  .photo-section-inner{grid-template-columns:1fr}
+  .photo-section-inner img{height:200px}
+  .photo-full-section img{height:200px}
 }
