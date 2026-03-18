@@ -20,13 +20,13 @@ img{display:block;max-width:100%}
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(0,0,0,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 3.5rem;height:64px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo-img{width:36px;height:36px;object-fit:contain}
+.nav-logo-img{width:36px;height:36px;max-width:36px;max-height:36px;object-fit:contain;flex-shrink:0}
 .nav-logo-text{font-size:0.78rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--white)}
 .nav-logo-text span{color:var(--teal)}
 .nav-links{display:flex;gap:2.5rem}
 .nav-links a{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:500;transition:color .25s}
 .nav-links a:hover,.nav-links a.active{color:var(--white)}
-.nav-cta{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--teal);border:1px solid rgba(59,145,130,0.4);padding:0.55rem 1.25rem;transition:all .25s}
+.nav-cta{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--teal);border:1px solid rgba(59,145,130,0.4);padding:0.55rem 1.25rem;transition:all .25s;white-space:nowrap}
 .nav-cta:hover{background:var(--teal);color:var(--white);border-color:var(--teal)}
 .nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:0.5rem;flex-shrink:0}
 .nav-burger span{display:block;width:22px;height:2px;background:var(--white);transition:all .25s}
