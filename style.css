@@ -60,7 +60,7 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(59,145,130,0.6),transparent)}
 
 /* Inner page hero */
-.hero-inner-page{min-height:55vh;background:var(--black);display:flex;flex-direction:column;justify-content:flex-end;padding:0 3.5rem 4rem;padding-top:64px;position:relative;overflow:hidden}
+.hero-inner-page{min-height:55vh;background:var(--black);display:flex;flex-direction:column;justify-content:flex-end;padding:0 3.5rem 5rem;padding-top:10rem;position:relative;overflow:hidden}
 .hero-inner-page .hero-bg-line{position:absolute;top:0;right:0;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(59,145,130,0.3),transparent)}
 .hero-inner-page .hero-teal-bar{position:absolute;top:0;left:0;width:3px;height:100%;background:var(--teal);opacity:0.6}
 .hero-inner-page .hero-content{max-width:1080px;margin:0 auto;width:100%}
@@ -241,6 +241,7 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
 
 @media(max-width:1024px){
   nav{padding:0 2rem}
+  .hero-inner-page{padding-top:8rem}
   .hero,.hero-inner-page,.sec,.cta-band,footer{padding-left:2rem;padding-right:2rem}
   .strip{padding:1.25rem 2rem;gap:2rem}
   .hero-inner{grid-template-columns:1fr}
@@ -256,6 +257,7 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
 @media(max-width:640px){
   nav{padding:0 1.5rem}
   .nav-links{display:none}
+  .hero-inner-page{padding-top:6rem}
   .hero,.hero-inner-page,.sec,.cta-band,footer{padding-left:1.5rem;padding-right:1.5rem}
   .strip{flex-direction:column;gap:0.75rem;padding:1.5rem}
   .strip-dot{display:none}
