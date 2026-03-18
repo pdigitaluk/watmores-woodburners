@@ -200,6 +200,11 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 .detail-value a{color:var(--teal);transition:color .2s}
 .detail-value a:hover{color:var(--black)}
 
+/* ── VIDEO ── */
+.video-wrap{max-width:900px;margin:0 auto;border:1px solid rgba(255,255,255,0.08);position:relative;overflow:hidden}
+.site-video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
+.site-video:focus{outline:none}
+
 /* ── CTA BAND ── */
 .cta-band{background:var(--teal);padding:5rem 3.5rem;text-align:center}
 .cta-band h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;color:var(--white);letter-spacing:-1px;margin-bottom:0.75rem}

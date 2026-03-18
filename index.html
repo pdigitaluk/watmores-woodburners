@@ -31,7 +31,7 @@
 }
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 
 <!-- EMBER STYLES -->
 <style>
@@ -223,6 +223,43 @@
   </div>
 </section>
 
+<section class="sec sec-black">
+  <div class="sec-inner">
+    <div class="eyebrow eyebrow-flame">See the work</div>
+    <h2 class="sec-title">Watch us in <strong>Action</strong></h2>
+    <p class="sec-sub">A glimpse into how we work — from first visit to final fire.</p>
+    <div class="video-wrap">
+      <video
+        class="site-video"
+        muted
+        playsinline
+        loop
+        controls
+        title="Watmore's Woodburners — Professional Wood Burning Stove Installation and Chimney Sweeping in Norwich and Norfolk"
+        aria-label="Video showcasing Watmore's Woodburners carrying out a professional woodburner installation and chimney sweeping service across Norwich and Norfolk">
+        <source src="videos/WWB VID V1.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Watmore's Woodburners — Professional Installation & Chimney Sweeping Norwich Norfolk",
+  "description": "Watch Watmore's Woodburners carry out professional woodburner installations and chimney sweeping across Norwich and Norfolk. HETAS registered, fully insured.",
+  "thumbnailUrl": "https://www.watmoreswoodburners.co.uk/images/watmores-woodburners-engineer-norfolk.jpg",
+  "uploadDate": "2026-03-18",
+  "contentUrl": "https://www.watmoreswoodburners.co.uk/videos/WWB%20VID%20V1.mp4",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Watmore's Woodburners",
+    "url": "https://www.watmoreswoodburners.co.uk"
+  }
+}
+</script>
+
 <section class="sec">
   <div class="sec-inner">
     <div class="eyebrow">Reviews</div>
@@ -294,6 +331,24 @@
     </div>
   </div>
 </footer>
+
+<!-- VIDEO PAUSE ON SCROLL -->
+<script>
+  (function(){
+    var video = document.querySelector('.site-video');
+    if (!video) return;
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(video);
+  })();
+</script>
 
 <!-- EMBER SCRIPT -->
 <script>
