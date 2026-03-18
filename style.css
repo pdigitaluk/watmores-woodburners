@@ -257,6 +257,8 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
 @media(max-width:640px){
   nav{padding:0 1.5rem}
   .nav-links{display:none}
+  .nav-cta{display:none}
+  .nav-mobile-call{display:flex !important;align-items:center;gap:0.5rem;font-size:0.82rem;font-weight:600;color:var(--teal);letter-spacing:1px;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);margin-top:0.5rem}
   .hero-inner-page{padding-top:6rem}
   .hero,.hero-inner-page,.sec,.cta-band,footer{padding-left:1.5rem;padding-right:1.5rem}
   .strip{flex-direction:column;gap:0.75rem;padding:1.5rem}
