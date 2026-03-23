@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chimney Sweep Norwich & Norfolk | Professional Chimney Sweeping | Watmore's</title>
-<meta name="description" content="Professional chimney sweeping in Norwich & Norfolk from £65. Certificate included. HETAS registered. Bird nest removal, CCTV surveys. Book today: 07540 046045.">
+<meta name="description" content="Professional chimney sweeping in Norwich & Norfolk from £65. Certificate included. HETAS registered. Bird nest removal. Book today: 07540 046045.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.watmoreswoodburners.co.uk/chimney-sweeping">
 <meta property="og:type" content="website">
@@ -29,6 +29,25 @@
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=8">
+
+<!-- SMOKE STYLES -->
+<style>
+@keyframes smoke-rise {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10%  { opacity: 0.18; }
+  80%  { opacity: 0.06; }
+  100% { transform: translateY(-100vh) translateX(var(--drift)) scale(3.5); opacity: 0; }
+}
+.smoke-particle {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(255,255,255,0.25);
+  filter: blur(6px);
+  animation: smoke-rise linear infinite;
+}
+</style>
 </head>
 <body>
 
@@ -53,6 +72,7 @@
 <section class="hero-inner-page hero-chimney">
   <div class="hero-bg-line"></div>
   <div class="hero-teal-bar"></div>
+  <div id="smoke"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Norwich &amp; Norfolk · From £65</div>
     <h1>Professional<br><strong>Chimney</strong><br><em>Sweeping</em><br>Service</h1>
@@ -76,9 +96,6 @@
   <div class="strip-item">Norwich &amp; Norfolk</div>
 </div>
 
-<div class="photo-full-section">
-  <img src="images/chimney-norfolk-aerial.jpg" alt="Aerial view of a chimney on a Norfolk thatched property being inspected by Watmore's Woodburners chimney sweep">
-</div>
 
 <section class="sec">
   <div class="sec-inner">
@@ -97,7 +114,7 @@
         <p style="color:var(--mid)">Regular sweeping removes creosote build-up, the primary cause of chimney fires.</p>
       </div>
       <div class="why-item" style="border-color:var(--border);background:var(--white)">
-        <div class="why-n" style="color:var(--teal);font-size:2.2rem">£65</div>
+        <div class="why-n" style="color:var(--teal);font-size:2.2rem">From £65</div>
         <h4 style="color:var(--mid)">Cost of a sweep</h4>
         <p style="color:var(--mid)">A small price compared to the cost of a chimney fire — or an invalidated insurance claim.</p>
       </div>
@@ -144,22 +161,37 @@
   </div>
 </section>
 
-<div class="photo-section">
-  <div class="photo-section-inner">
-    <img src="images/chimney-sweep-norwich-norfolk.jpg" alt="Watmore's Woodburners chimney sweep using a power brush rod during a professional chimney sweep in Norwich">
-    <img src="images/chimney-lining-norfolk.jpg" alt="Watmore's Woodburners engineer carrying out chimney lining work in a Norfolk property">
+<section class="sec sec-black chimney-gallery-sec">
+  <div class="sec-inner">
+    <div class="eyebrow eyebrow-flame">Our work</div>
+    <h2 class="sec-title">Chimney Sweeping <strong>In Action</strong></h2>
+    <p class="sec-sub">A look at our team at work across Norwich and Norfolk.</p>
+    <div class="chimney-gallery">
+      <div class="chimney-gallery-main">
+        <img src="images/chimney-norfolk-aerial.jpg" alt="Aerial view of a chimney on a Norfolk property">
+      </div>
+      <div class="chimney-gallery-side">
+        <div class="chimney-gallery-item">
+          <img src="images/chimney-sweep-norwich-norfolk.jpg" alt="Watmore's Woodburners chimney sweep in Norwich">
+        </div>
+        <div class="chimney-gallery-item">
+          <img src="images/chimney-lining-norfolk.jpg" alt="Chimney lining work in Norfolk">
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <section class="sec sec-off">
   <div class="sec-inner">
     <div class="eyebrow">Pricing</div>
     <h2 class="sec-title">Clear, <strong>Upfront Pricing</strong></h2>
     <p class="sec-sub">No hidden charges. Every price agreed before we arrive.</p>
-    <div class="pricing-grid">
-      <div class="price-card">
+    <div class="pricing-grid pricing-grid-2">
+      <div class="price-card featured">
+        <div class="featured-badge">Most popular</div>
         <div class="price-tag-label">Standard Sweep</div>
-        <div class="price-amount">£65</div>
+        <div class="price-amount">From £65</div>
         <div class="price-note">Per visit · certificate included</div>
         <ul class="price-list">
           <li>Full power or hand sweep</li>
@@ -167,28 +199,14 @@
           <li>Visual inspection</li>
           <li>Insurance-valid certificate</li>
           <li>Mess-free, dust sheets used</li>
-        </ul>
-        <a href="tel:07540046045" class="price-link">Book now</a>
-      </div>
-      <div class="price-card featured">
-        <div class="featured-badge">Recommended</div>
-        <div class="price-tag-label">Sweep + CCTV Survey</div>
-        <div class="price-amount">£150</div>
-        <div class="price-note">Full inspection · report included</div>
-        <ul class="price-list">
-          <li>Everything in standard sweep</li>
-          <li>Full CCTV camera survey</li>
-          <li>Written report with images</li>
-          <li>Ideal for property purchases</li>
-          <li>Identifies hidden damage</li>
-          <li>Recommended every 3–5 years</li>
+          <li>Price confirmed before booking</li>
         </ul>
         <a href="tel:07540046045" class="price-link">Book now</a>
       </div>
       <div class="price-card">
         <div class="price-tag-label">Bird Nest Removal</div>
-        <div class="price-amount">£150+</div>
-        <div class="price-note">Price depends on nest size</div>
+        <div class="price-amount">POA</div>
+        <div class="price-note">Price depends on job</div>
         <ul class="price-list">
           <li>Safe nest removal</li>
           <li>Flue cleared and swept</li>
@@ -298,7 +316,6 @@
       <div class="faq-item"><h3>Do I get a certificate after a chimney sweep?</h3><p>Yes — we issue an insurance-valid sweep certificate on every visit. This is essential for your home insurance and will be needed if you ever make a fire-related claim.</p></div>
       <div class="faq-item"><h3>How long does a chimney sweep take?</h3><p>A standard sweep takes approximately 45–60 minutes. A CCTV survey will add around 30 minutes. We always work cleanly and efficiently to minimise disruption to your day.</p></div>
       <div class="faq-item"><h3>Will the sweep make a mess in my home?</h3><p>No — we use dust sheets, specialist equipment and a powerful vacuum to ensure your home stays clean. Most customers are surprised at how tidy we leave things.</p></div>
-      <div class="faq-item"><h3>What is a CCTV chimney survey?</h3><p>A CCTV survey involves a camera inspection of the full length of your flue. It identifies cracking, damage or blockages that aren't visible during a standard sweep. We recommend one every 3–5 years, or when buying a property.</p></div>
     </div>
   </div>
 </section>
@@ -328,7 +345,6 @@
           <li><a href="chimney-sweeping.html">Chimney Sweeping</a></li>
           <li><a href="index.html#services">Servicing &amp; Repairs</a></li>
           <li><a href="index.html#services">Flue Lining</a></li>
-          <li><a href="index.html#services">CCTV Survey</a></li>
         </ul>
       </div>
       <div>
@@ -349,6 +365,30 @@
     </div>
   </div>
 </footer>
+
+<!-- SMOKE SCRIPT -->
+<script>
+  const smokeContainer = document.getElementById('smoke');
+  for (let i = 0; i < 22; i++) {
+    const p = document.createElement('div');
+    p.className = 'smoke-particle';
+    const size  = Math.random() * 18 + 8;
+    const left  = Math.random() * 100;
+    const dur   = Math.random() * 16 + 12;
+    const delay = Math.random() * 20 * -1;
+    const drift = (Math.random() * 120 - 60).toFixed(0) + 'px';
+    p.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${left}%;
+      --drift: ${drift};
+      animation-duration: ${dur}s;
+      animation-delay: ${delay}s;
+      opacity: 0;
+    `;
+    smokeContainer.appendChild(p);
+  }
+</script>
 
 </body>
 </html>

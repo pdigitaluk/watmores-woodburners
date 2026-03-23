@@ -117,8 +117,16 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 
 /* ── PRICING ── */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}
-.price-card{padding:3rem 2.25rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;background:var(--white)}
+.price-card{padding:3rem 2.25rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;background:var(--white);transition:background .25s,border-color .25s}
 .price-card.featured{background:var(--black)}
+.price-card:hover,.price-card.featured:hover{background:var(--teal);border-color:var(--teal-dark)}
+.price-card:hover .price-tag-label,.price-card.featured:hover .price-tag-label{color:rgba(255,255,255,0.6)}
+.price-card:hover .price-amount,.price-card.featured:hover .price-amount{color:var(--white)}
+.price-card:hover .price-note,.price-card.featured:hover .price-note{color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2)}
+.price-card:hover .price-list li,.price-card.featured:hover .price-list li{color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.15)}
+.price-card:hover .price-list li::before,.price-card.featured:hover .price-list li::before{background:var(--white)}
+.price-card:hover .price-link,.price-card.featured:hover .price-link{color:var(--white)}
+.price-card:hover .featured-badge,.price-card.featured:hover .featured-badge{color:var(--white);border-color:rgba(255,255,255,0.4)}
 .price-tag-label{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:2rem}
 .price-card.featured .price-tag-label{color:rgba(255,255,255,0.3)}
 .price-amount{font-size:3.5rem;font-weight:200;letter-spacing:-3px;color:var(--black);line-height:1;margin-bottom:0.5rem}
@@ -157,6 +165,52 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 .stove-link{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:0.5rem;transition:gap .25s}
 .stove-link::after{content:'→'}
 .stove-link:hover{gap:0.85rem}
+
+/* ── PACKAGE CARDS ── */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pkg-card{background:#0d0d0d;border:1px solid rgba(255,255,255,0.07);padding:2.5rem 2rem;display:flex;flex-direction:column}
+.pkg-card-featured{border-color:rgba(59,145,130,0.4);background:#0a1513}
+.pkg-popular{display:inline-block;font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--teal);border:1px solid rgba(59,145,130,0.35);padding:0.3rem 0.65rem;margin-bottom:1rem}
+.pkg-model{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--teal);opacity:0.7;margin-bottom:0.4rem}
+.pkg-name{font-size:1.5rem;font-weight:300;color:var(--white);letter-spacing:-0.5px;margin-bottom:1rem}
+.pkg-desc{font-size:0.78rem;color:rgba(255,255,255,0.3);line-height:1.85;font-weight:300;margin-bottom:1.5rem}
+.pkg-specs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,0.06);border-left:1px solid rgba(255,255,255,0.06);margin-bottom:1.5rem}
+.pkg-spec{padding:0.65rem 0.75rem;border-right:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
+.pkg-spec span{display:block;font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:500;margin-bottom:0.2rem}
+.pkg-spec strong{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.6)}
+.pkg-includes{flex-grow:1;margin-bottom:1.75rem}
+.pkg-includes-label{font-size:0.58rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:600;margin-bottom:0.75rem}
+.pkg-includes ul{list-style:none}
+.pkg-includes ul li{font-size:0.76rem;color:rgba(255,255,255,0.35);font-weight:300;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:0.6rem}
+.pkg-includes ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.pkg-price{font-size:3rem;font-weight:200;color:var(--white);letter-spacing:-2px;line-height:1}
+.pkg-price-note{font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:500;margin-top:0.4rem;margin-bottom:1.5rem}
+.pkg-btn{display:inline-block;background:var(--teal);color:var(--white);padding:0.85rem 1.5rem;font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:background .25s;margin-top:auto}
+.pkg-btn:hover{background:var(--teal-dark)}
+
+/* ── JOBS GRID ── */
+.jobs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.job-card{background:var(--white);border:1px solid var(--border);overflow:hidden}
+.job-img-placeholder{width:100%;height:220px;background:#e5e5e0;display:flex;align-items:center;justify-content:center;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:#bbb;font-weight:600}
+.job-img-placeholder::after{content:'Photo coming soon'}
+.job-card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .4s}
+.job-card:hover img{transform:scale(1.03)}
+.job-info{padding:1rem 1.25rem}
+.job-type{font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--black);margin-bottom:0.2rem}
+.job-location{font-size:0.72rem;color:var(--muted);font-weight:300}
+
+/* ── CHIMNEY GALLERY ── */
+.chimney-gallery{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:0}
+.chimney-gallery-main{overflow:hidden}
+.chimney-gallery-main img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:filter .3s;min-height:300px}
+.chimney-gallery-main img:hover{filter:brightness(1)}
+.chimney-gallery-side{display:grid;grid-template-rows:1fr 1fr;gap:1.5rem}
+.chimney-gallery-item{overflow:hidden}
+.chimney-gallery-item img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:filter .3s;min-height:140px}
+.chimney-gallery-item img:hover{filter:brightness(1)}
+
+/* ── PRICING 2-UP ── */
+.pricing-grid-2{grid-template-columns:repeat(2,1fr);max-width:740px;margin-left:auto;margin-right:auto}
 
 /* ── AREAS GRID ── */
 .areas-grid{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2rem}
@@ -251,7 +305,9 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .strip{padding:1.25rem 2rem;gap:2rem}
   .hero-inner{grid-template-columns:1fr}
   .hero-aside{display:none}
-  .services-grid,.stove-grid,.pricing-grid,.testi-grid,.why-grid,.included-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid,.stove-grid,.pricing-grid,.testi-grid,.why-grid,.included-grid,.pkg-grid,.jobs-grid{grid-template-columns:repeat(2,1fr)}
+  .chimney-gallery{grid-template-columns:1fr}
+  .chimney-gallery-side{grid-template-rows:unset;grid-template-columns:1fr 1fr}
   .footer-top{grid-template-columns:1fr 1fr;gap:3rem}
   .contact-layout{grid-template-columns:1fr;gap:3rem}
   .photo-section{padding:0 2rem 2rem}
@@ -268,7 +324,9 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .hero,.hero-inner-page,.sec,.cta-band,footer{padding-left:1.5rem;padding-right:1.5rem}
   .strip{flex-direction:column;gap:0.75rem;padding:1.5rem}
   .strip-dot{display:none}
-  .services-grid,.stove-grid,.pricing-grid,.testi-grid,.why-grid,.included-grid{grid-template-columns:1fr}
+  .services-grid,.stove-grid,.pricing-grid,.testi-grid,.why-grid,.included-grid,.pkg-grid,.jobs-grid{grid-template-columns:1fr}
+  .chimney-gallery,.chimney-gallery-side{grid-template-columns:1fr;grid-template-rows:unset}
+  .pricing-grid-2{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr;gap:2.5rem}
   .form-row{grid-template-columns:1fr}
   .photo-section{padding:0 1.5rem 1.5rem}
