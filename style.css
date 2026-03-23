@@ -339,6 +339,7 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .hero-inner{grid-template-columns:1fr}
   .hero-aside{display:none}
   .services-grid,.stove-grid,.pricing-grid,.testi-grid,.why-grid,.included-grid,.pkg-grid,.jobs-grid{grid-template-columns:repeat(2,1fr)}
+  .pkg-img{aspect-ratio:3/2}
   .chimney-gallery{grid-template-columns:1fr}
   .chimney-gallery-side{grid-template-rows:unset;grid-template-columns:1fr 1fr}
   .footer-top{grid-template-columns:1fr 1fr;gap:3rem}
@@ -397,9 +398,10 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .service-item{padding:2rem 1.5rem}
   .stove-card{padding:2rem 1.5rem}
   .price-card{padding:2rem 1.5rem}
-  .pkg-body{padding:1.25rem 1.25rem 0}
-  .pkg-toggle{padding:0.9rem 1.25rem}
-  .pkg-details{padding:1.25rem}
+  .pkg-img{aspect-ratio:4/3}
+  .pkg-body{padding:1.1rem 1.25rem 0}
+  .pkg-toggle{padding:0.85rem 1.25rem}
+  .pkg-details{padding:1.1rem 1.25rem 52px}
   .testi-card{padding:2rem 1.5rem}
 
   /* ── NUMBERS ── */
