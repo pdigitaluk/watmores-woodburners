@@ -168,25 +168,37 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 
 /* ── PACKAGE CARDS ── */
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.pkg-card{background:#0d0d0d;border:1px solid rgba(255,255,255,0.07);padding:2.5rem 2rem;display:flex;flex-direction:column}
+.pkg-card{background:#0d0d0d;border:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;overflow:hidden;position:relative}
 .pkg-card-featured{border-color:rgba(59,145,130,0.4);background:#0a1513}
+.pkg-img{background:#fff;width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pkg-img img{width:85%;height:85%;object-fit:contain;display:block;transition:transform .4s}
+.pkg-card:hover .pkg-img img{transform:scale(1.04)}
+.pkg-body{padding:1.75rem 1.75rem 0}
 .pkg-popular{display:inline-block;font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--teal);border:1px solid rgba(59,145,130,0.35);padding:0.3rem 0.65rem;margin-bottom:1rem}
 .pkg-model{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--teal);opacity:0.7;margin-bottom:0.4rem}
-.pkg-name{font-size:1.5rem;font-weight:300;color:var(--white);letter-spacing:-0.5px;margin-bottom:1rem}
-.pkg-desc{font-size:0.78rem;color:rgba(255,255,255,0.3);line-height:1.85;font-weight:300;margin-bottom:1.5rem}
-.pkg-specs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,0.06);border-left:1px solid rgba(255,255,255,0.06);margin-bottom:1.5rem}
-.pkg-spec{padding:0.65rem 0.75rem;border-right:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
-.pkg-spec span{display:block;font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:500;margin-bottom:0.2rem}
-.pkg-spec strong{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.6)}
-.pkg-includes{flex-grow:1;margin-bottom:1.75rem}
-.pkg-includes-label{font-size:0.58rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:600;margin-bottom:0.75rem}
-.pkg-includes ul{list-style:none}
-.pkg-includes ul li{font-size:0.76rem;color:rgba(255,255,255,0.35);font-weight:300;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:0.6rem}
-.pkg-includes ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.pkg-name{font-size:1.5rem;font-weight:300;color:var(--white);letter-spacing:-0.5px;margin-bottom:1.25rem}
 .pkg-price{font-size:3rem;font-weight:200;color:var(--white);letter-spacing:-2px;line-height:1}
-.pkg-price-note{font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:500;margin-top:0.4rem;margin-bottom:1.5rem}
-.pkg-btn{display:inline-block;background:var(--teal);color:var(--white);padding:0.85rem 1.5rem;font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:background .25s;margin-top:auto}
+.pkg-price-note{font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:500;margin-top:0.4rem;margin-bottom:1.25rem}
+.pkg-btn{display:block;background:var(--teal);color:var(--white);padding:0.85rem 1.5rem;font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:background .25s;text-align:center}
 .pkg-btn:hover{background:var(--teal-dark)}
+.pkg-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;border-top:1px solid rgba(255,255,255,0.06);padding:0.9rem 1.75rem;font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,0.3);cursor:pointer;transition:color .2s;margin-top:1.25rem;position:relative;z-index:3}
+.pkg-toggle:hover{color:var(--teal)}
+.pkg-toggle::after{content:'↓';transition:transform .25s}
+.pkg-card.pkg-open .pkg-toggle::after{transform:rotate(180deg)}
+.pkg-card.pkg-open .pkg-toggle{color:var(--teal);border-color:rgba(59,145,130,0.3)}
+.pkg-details{position:absolute;top:0;left:0;right:0;bottom:0;background:#0d0d0d;padding:1.25rem 1.5rem 56px;overflow:hidden;transform:translateY(100%);transition:transform .4s cubic-bezier(0.4,0,0.2,1);z-index:2}
+.pkg-card-featured .pkg-details{background:#0a1513}
+.pkg-card.pkg-open .pkg-details{transform:translateY(0)}
+.pkg-desc{font-size:0.72rem;color:rgba(255,255,255,0.3);line-height:1.7;font-weight:300;margin-bottom:1rem}
+.pkg-specs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,0.06);border-left:1px solid rgba(255,255,255,0.06);margin-bottom:1rem}
+.pkg-spec{padding:0.45rem 0.65rem;border-right:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
+.pkg-spec span{display:block;font-size:0.52rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:500;margin-bottom:0.15rem}
+.pkg-spec strong{font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.6)}
+.pkg-includes{margin-bottom:0}
+.pkg-includes-label{font-size:0.55rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:600;margin-bottom:0.5rem}
+.pkg-includes ul{list-style:none}
+.pkg-includes ul li{font-size:0.7rem;color:rgba(255,255,255,0.35);font-weight:300;padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:0.5rem}
+.pkg-includes ul li::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--teal);flex-shrink:0}
 
 /* ── JOBS GRID ── */
 .jobs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -385,7 +397,9 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .service-item{padding:2rem 1.5rem}
   .stove-card{padding:2rem 1.5rem}
   .price-card{padding:2rem 1.5rem}
-  .pkg-card{padding:2rem 1.5rem}
+  .pkg-body{padding:1.25rem 1.25rem 0}
+  .pkg-toggle{padding:0.9rem 1.25rem}
+  .pkg-details{padding:1.25rem}
   .testi-card{padding:2rem 1.5rem}
 
   /* ── NUMBERS ── */
