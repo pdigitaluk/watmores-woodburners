@@ -145,20 +145,22 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 
 /* ── TESTIMONIALS ── */
 .testi-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
-.testi-google-badge{display:flex;align-items:center;gap:0.65rem;background:var(--off);padding:0.6rem 1.1rem}
+.testi-google-badge{display:flex;align-items:center;gap:0.65rem;background:var(--white);padding:0.6rem 1.1rem;border:1px solid var(--border)}
 .testi-google-badge .g-stars{display:flex;gap:2px}
 .testi-google-badge .g-star{width:10px;height:10px;background:#FBBC04;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
 .testi-google-badge span{font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--black)}
 .testi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.testi-card{background:var(--black);padding:2.25rem;position:relative;display:flex;flex-direction:column}
-.testi-card::before{content:'\201C';position:absolute;top:1.25rem;right:1.5rem;font-size:5rem;line-height:1;color:var(--teal);opacity:0.15;font-family:Georgia,serif;font-weight:700}
-.testi-stars{display:flex;gap:3px;margin-bottom:1.25rem}
-.star{width:10px;height:10px;background:#FBBC04;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-.testi-card blockquote{font-size:0.83rem;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.9;font-style:italic;margin-bottom:2rem;letter-spacing:0.2px;flex:1}
-.testi-footer{display:flex;align-items:center;gap:0.85rem}
+.testi-card{background:var(--white);padding:2rem 2rem 1.75rem;border:1px solid var(--border);border-left:3px solid var(--teal);display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
+.testi-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.testi-quote-mark{font-size:3.5rem;line-height:1;color:var(--teal);font-family:Georgia,serif;font-weight:700;margin-bottom:0.5rem;opacity:0.35}
+.testi-body{font-size:0.85rem;font-weight:400;color:var(--black);line-height:1.85;margin-bottom:1.5rem;flex:1}
+.testi-stars{display:flex;gap:3px;margin-bottom:1.5rem}
+.star{width:11px;height:11px;background:#FBBC04;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.testi-footer{display:flex;align-items:center;gap:0.85rem;padding-top:1.25rem;border-top:1px solid var(--border);margin-top:auto}
 .testi-avatar{width:36px;height:36px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:600;color:var(--white);letter-spacing:0.5px;flex-shrink:0}
-.testi-name{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--white)}
-.testi-loc{font-size:0.68rem;color:rgba(255,255,255,0.3);font-weight:300;margin-top:0.15rem}
+.testi-name{font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--black)}
+.testi-loc{font-size:0.7rem;color:var(--muted);font-weight:300;margin-top:0.15rem}
+.testi-g-icon{width:18px;height:18px;margin-left:auto;flex-shrink:0}
 
 /* ── STOVE CARDS ── */
 .stove-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}
@@ -208,16 +210,21 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 .pkg-includes ul li{font-size:0.7rem;color:rgba(255,255,255,0.35);font-weight:300;padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:0.5rem}
 .pkg-includes ul li::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--teal);flex-shrink:0}
 
-/* ── JOBS GRID ── */
-.jobs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.job-card{background:var(--white);border:1px solid var(--border);overflow:hidden}
+/* ── JOBS MARQUEE ── */
+@keyframes jobs-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes wave-dash{to{stroke-dashoffset:-640}}
+.jobs-marquee-wrap{overflow:hidden;margin-top:2.5rem}
+.jobs-marquee{display:flex;gap:1.25rem;width:max-content;animation:jobs-scroll 90s linear infinite;position:relative}
+.jobs-marquee:hover{animation-play-state:paused}
+.job-card{background:var(--white);border:1px solid var(--border);overflow:hidden;flex:0 0 300px;position:relative}
+.jobs-marquee .job-card:nth-child(odd){z-index:2}
+.jobs-marquee .job-card:nth-child(even){z-index:0}
 .job-img-placeholder{width:100%;height:220px;background:#e5e5e0;display:flex;align-items:center;justify-content:center;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:#bbb;font-weight:600}
 .job-img-placeholder::after{content:'Photo coming soon'}
 .job-card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .4s}
 .job-card:hover img{transform:scale(1.03)}
-.job-info{padding:1rem 1.25rem}
-.job-type{font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--black);margin-bottom:0.2rem}
-.job-location{font-size:0.72rem;color:var(--muted);font-weight:300}
+.jobs-wave-svg{position:absolute;top:0;left:0;width:100%;height:220px;pointer-events:none;z-index:1;overflow:visible}
+.jobs-wave-path{fill:none;stroke:var(--teal);stroke-width:3;stroke-dasharray:20 10;stroke-linecap:round;animation:wave-dash 3s linear infinite;filter:drop-shadow(0 0 4px var(--teal))}
 
 /* ── PRODUCT GRID ── */
 .product-category{margin-top:0}
@@ -412,7 +419,7 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .pkg-body{padding:1.1rem 1.25rem 0}
   .pkg-toggle{padding:0.85rem 1.25rem}
   .pkg-details{padding:1.1rem 1.25rem 52px}
-  .testi-card{padding:2rem 1.5rem}
+  .testi-card{padding:1.75rem 1.5rem}
 
   /* ── NUMBERS ── */
   .price-amount{font-size:2.5rem;letter-spacing:-1px}
@@ -439,8 +446,7 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   /* ── REVIEWS ── */
   .testi-header{flex-direction:column;align-items:flex-start;margin-bottom:1.75rem}
   .testi-grid{grid-template-columns:1fr}
-  .testi-card{padding:1.75rem 1.25rem}
-  .testi-card blockquote{font-size:0.8rem}
+  .testi-card{padding:1.5rem 1.25rem}
 
   /* ── STOVE OVERLAY ── */
   .pkg-details{padding:1rem 1.25rem 52px;overflow-y:auto}
