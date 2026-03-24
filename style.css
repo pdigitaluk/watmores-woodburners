@@ -441,7 +441,7 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .job-card img{height:160px}
   .job-card{flex:0 0 220px}
   .jobs-marquee-wrap{margin-top:1.5rem}
-  .jobs-marquee{gap:0.75rem}
+  .jobs-marquee{gap:0.75rem;animation-duration:360s}
 
   /* ── PRODUCT GRID ── */
   .product-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
