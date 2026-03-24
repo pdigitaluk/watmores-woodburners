@@ -448,8 +448,9 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
 
   /* ── REVIEWS ── */
   .testi-header{flex-direction:column;align-items:flex-start;margin-bottom:1.75rem}
-  .testi-grid{grid-template-columns:1fr}
-  .testi-card{padding:1.5rem 1.25rem}
+  .testi-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:1rem;padding:0.25rem 1.5rem 1rem;margin:0 -1.5rem;scrollbar-width:none}
+  .testi-grid::-webkit-scrollbar{display:none}
+  .testi-card{flex:0 0 82vw;scroll-snap-align:start;padding:1.5rem 1.25rem}
 
   /* ── STOVE OVERLAY ── */
   .pkg-details{padding:1rem 1.25rem 52px;overflow-y:auto}
