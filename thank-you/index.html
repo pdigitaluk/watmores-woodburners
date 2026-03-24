@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You | Watmore's Woodburners Norwich</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.watmoreswoodburners.co.uk/thank-you/">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=10">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../images/ww logo red flame.png" class="nav-logo-img" alt="Watmore's Woodburners logo">
+    <div class="nav-logo-text">Watmore's <span>Woodburners</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/woodburners">Stoves</a>
+    <a href="/chimney-sweeping">Chimney Sweeping</a>
+    <a href="/hearth-surround">Hearth &amp; Surround</a>
+    <a href="/contact" class="active">Contact</a>
+  </div>
+  <a href="tel:07540046045" class="nav-cta">07540 046045</a>
+  <button class="nav-burger" aria-label="Toggle menu" onclick="this.closest('nav').classList.toggle('nav-open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero-inner-page" style="min-height:100vh;justify-content:center">
+  <div class="hero-bg-line"></div>
+  <div class="hero-teal-bar"></div>
+  <div id="sparks"></div>
+  <div class="hero-content" style="text-align:center;max-width:600px;margin:0 auto">
+    <div style="font-size:3rem;margin-bottom:1.5rem">🔥</div>
+    <div class="hero-eyebrow" style="justify-content:center">Enquiry received</div>
+    <h1>Thank <strong>You</strong> for<br>Getting In <em>Touch</em></h1>
+    <p class="hero-sub" style="margin:0 auto 2.5rem">We've received your message and will be in touch within 24 hours. In the meantime, feel free to call or WhatsApp us directly.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="tel:07540046045" class="btn-primary">Call 07540 046045</a>
+      <a href="/" class="btn-line">Back to home</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo">Watmore's <span>Woodburners</span></div>
+        <p class="f-desc">Expert woodburner installations and chimney care across Norwich and Norfolk. HETAS registered, fully insured and building regs compliant.</p>
+        <img src="../images/HETAS-Installer-Logo.gif" alt="HETAS Registered Installer" class="f-hetas-logo">
+        <span class="f-hetas">HETAS Registered</span>
+      </div>
+      <div>
+        <div class="f-heading">Services</div>
+        <ul>
+          <li><a href="/woodburners">Wood Burning Stoves</a></li>
+          <li><a href="/chimney-sweeping">Chimney Sweeping</a></li>
+          <li><a href="/hearth-surround">Hearth &amp; Surround</a></li>
+          <li><a href="/#services">Servicing &amp; Repairs</a></li>
+          <li><a href="/#services">Flue Lining</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-heading">Get in touch</div>
+        <ul>
+          <li><a href="tel:07540046045">07540 046045</a></li>
+          <li><a href="https://wa.me/447540046045">WhatsApp</a></li>
+          <li><a href="mailto:watmoreswoodburners@gmail.com">Email us</a></li>
+          <li class="info">Mon–Fri · 9am – 5pm</li>
+          <li class="info">Norwich &amp; Norfolk</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>© 2026 Watmore's Woodburners. All rights reserved.</p>
+      <p>Fully Insured · HETAS Registered · Building Regs Compliant</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+@keyframes spark-rise {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  5%   { opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-80vh) translateX(var(--drift)); opacity: 0; }
+}
+.spark {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: spark-rise linear infinite;
+}
+</style>
+<script>
+  const container = document.getElementById('sparks');
+  const colors = ['#F04D27','#e06020','#ff7040','#ffaa60','#3B9182'];
+  for (let i = 0; i < 30; i++) {
+    const s = document.createElement('div');
+    s.className = 'spark';
+    const size = Math.random() * 3 + 1.5;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 5 + 4;
+    const delay = Math.random() * 6;
+    const drift = (Math.random() - 0.5) * 80;
+    s.style.cssText = `width:${size}px;height:${size}px;left:${left}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${duration}s;animation-delay:-${delay}s;--drift:${drift}px;opacity:0`;
+    container.appendChild(s);
+  }
+</script>
+
+</body>
+</html>
