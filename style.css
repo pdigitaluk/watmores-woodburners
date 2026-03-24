@@ -144,13 +144,21 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 .featured-badge{position:absolute;top:2rem;right:2rem;font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--teal);border:1px solid rgba(59,145,130,0.3);padding:0.3rem 0.6rem}
 
 /* ── TESTIMONIALS ── */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border)}
-.testi-card{padding:2.75rem 2rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-.testi-stars{display:flex;gap:3px;margin-bottom:1.5rem}
-.star{width:8px;height:8px;background:var(--flame);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-.testi-card blockquote{font-size:0.82rem;font-weight:300;color:var(--mid);line-height:1.95;font-style:italic;margin-bottom:1.75rem;letter-spacing:0.2px}
-.testi-name{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--black)}
-.testi-loc{font-size:0.7rem;color:var(--muted);font-weight:300;margin-top:0.2rem}
+.testi-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.testi-google-badge{display:flex;align-items:center;gap:0.65rem;background:var(--off);padding:0.6rem 1.1rem}
+.testi-google-badge .g-stars{display:flex;gap:2px}
+.testi-google-badge .g-star{width:10px;height:10px;background:#FBBC04;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.testi-google-badge span{font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--black)}
+.testi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.testi-card{background:var(--black);padding:2.25rem;position:relative;display:flex;flex-direction:column}
+.testi-card::before{content:'\201C';position:absolute;top:1.25rem;right:1.5rem;font-size:5rem;line-height:1;color:var(--teal);opacity:0.15;font-family:Georgia,serif;font-weight:700}
+.testi-stars{display:flex;gap:3px;margin-bottom:1.25rem}
+.star{width:10px;height:10px;background:#FBBC04;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.testi-card blockquote{font-size:0.83rem;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.9;font-style:italic;margin-bottom:2rem;letter-spacing:0.2px;flex:1}
+.testi-footer{display:flex;align-items:center;gap:0.85rem}
+.testi-avatar{width:36px;height:36px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:600;color:var(--white);letter-spacing:0.5px;flex-shrink:0}
+.testi-name{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--white)}
+.testi-loc{font-size:0.68rem;color:rgba(255,255,255,0.3);font-weight:300;margin-top:0.15rem}
 
 /* ── STOVE CARDS ── */
 .stove-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}
@@ -348,6 +356,8 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .photo-full-section{padding:0 2rem 2rem}
   .photo-section-inner img{height:220px}
   .photo-full-section img{height:380px}
+  .testi-header{flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
+  .testi-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:640px){
   /* ── NAV ── */
@@ -425,4 +435,24 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
 
   /* ── PRODUCT GRID ── */
   .product-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
+
+  /* ── REVIEWS ── */
+  .testi-header{flex-direction:column;align-items:flex-start;margin-bottom:1.75rem}
+  .testi-grid{grid-template-columns:1fr}
+  .testi-card{padding:1.75rem 1.25rem}
+  .testi-card blockquote{font-size:0.8rem}
+
+  /* ── STOVE OVERLAY ── */
+  .pkg-details{padding:1rem 1.25rem 52px;overflow-y:auto}
+  .pkg-spec span,.pkg-spec strong{font-size:0.72rem}
+  .pkg-includes-label{font-size:0.55rem}
+  .pkg-include{font-size:0.72rem}
+  .pkg-desc{font-size:0.75rem;line-height:1.7}
+
+  /* ── PRODUCT ACCORDION ── */
+  .product-category-label{font-size:0.55rem;letter-spacing:2px;padding:0.9rem 1rem}
+  .product-category-label::after{font-size:0.55rem;letter-spacing:1px}
+
+  /* ── CONTACT IFRAME ── */
+  .contact-form iframe{min-height:600px}
 }
