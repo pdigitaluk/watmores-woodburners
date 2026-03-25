@@ -55,6 +55,10 @@
   animation: smoke-rise linear infinite;
 }
 </style>
+<style>
+ ember-fall{0%{transform:translateY(-20px) translateX(0px);opacity:0}5%{opacity:1}85%{opacity:0.6}100%{transform:translateY(100vh) translateX(var(--drift));opacity:0}}
+.ember{position:absolute;top:0;border-radius:50%;pointer-events:none;animation:ember-fall linear infinite}
+</style>
 </head>
 <body>
 
@@ -78,6 +82,7 @@
 </nav>
 
 <section class="hero-inner-page hero-chimney">
+<div id="embers"></div>
   <div class="hero-bg-line"></div>
   <div class="hero-teal-bar"></div>
   <div id="smoke"></div>
@@ -434,5 +439,8 @@
   }
 </script>
 
+<script>
+(function(){var c=document.getElementById("embers");if(!c)return;var cols=["#F04D27","#e06020","#ff7040","#ffaa60","#cc3a10"];for(var i=0;i<38;i++){var e=document.createElement("div");e.className="ember";var sz=Math.random()*3+1.5,lf=Math.random()*100,dur=Math.random()*12+8,del=Math.random()*14*-1,dr=(Math.random()*80-40).toFixed(0)+"px",col=cols[Math.floor(Math.random()*cols.length)];e.style.cssText="width:"+sz+"px;height:"+sz+"px;left:"+lf+"%;--drift:"+dr+";animation-duration:"+dur+"s;animation-delay:"+del+"s;background:"+col+";box-shadow:0 0 "+(sz*2)+"px "+col+";opacity:0;";c.appendChild(e);}})();
+</script>
 </body>
 </html>
