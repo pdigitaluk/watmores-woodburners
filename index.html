@@ -289,6 +289,28 @@
       <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-circular-light.jpg" alt="Chimney interior showing circular flue opening with light — HETAS chimney sweep, Norfolk" style="cursor:zoom-in"></div>
       <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-sooty-triangle.jpg" alt="Inside view of sooty chimney before professional chimney sweep — Norwich, Norfolk" style="cursor:zoom-in"></div>
       <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-circular-dark.jpg" alt="Chimney flue interior before professional sweep — Watmore's Woodburners, Norfolk" style="cursor:zoom-in"></div>
+      <!-- duplicate set for seamless infinite loop -->
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/installations/26.03.2026.jpeg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/installations/stove-round-hearth-fire-burning.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/installations/stove-white-surround-fire-burning.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/installations/stove-slate-back-panel-lounge.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/installations/stove-cylinder-corner-hearth-parquet.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/installations/stove-fireplace-beam-drylining-1.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/installations/stove-fireplace-beam-drylining-2.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/installations/stove-slate-hearth-ceiling-flue.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/installations/stove-cylinder-glass-hearth-white-room.jpg" alt="" style="object-position:bottom;cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/flue-work/flue-timber-cladding-wide.jpg" alt="" style="object-position:center 20%;cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/flue-work/flue-external-black-brick-house.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/flue-work/flue-stainless-brick-exterior.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/flue-work/flue-timber-cladding-side.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/flue-work/flue-timber-cladding-close.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/in-progress/steelwork-frame-front.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/in-progress/steelwork-frame-room.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/in-progress/fireplace-opening-exposed.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-soot-bucket.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-circular-light.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-sooty-triangle.jpg" alt="" style="cursor:zoom-in"></div>
+      <div class="job-card" aria-hidden="true"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-circular-dark.jpg" alt="" style="cursor:zoom-in"></div>
     </div>
   </div>
 </section>
@@ -503,25 +525,44 @@
 <script>
 (function(){
   var wrap = document.querySelector('.jobs-marquee-wrap');
-  if(!wrap) return;
-  var dragging = false, startX = 0, startScroll = 0, didDrag = false;
-  wrap.addEventListener('mousedown', function(e){
+  var track = document.querySelector('.jobs-marquee');
+  if(!wrap || !track) return;
+
+  var pos = 0, dragging = false;
+  var startX = 0, startPos = 0, didDrag = false;
+
+  function wrap_pos(){
+    var half = track.scrollWidth / 2;
+    if(pos <= -half) pos += half;
+    if(pos > 0)      pos -= half;
+  }
+
+  function apply(){ track.style.transform = 'translateX('+pos+'px)'; }
+
+  function getX(e){ return e.touches ? e.touches[0].clientX : e.clientX; }
+
+  function onStart(e){
     dragging = true; didDrag = false;
-    startX = e.clientX; startScroll = wrap.scrollLeft;
-    wrap.style.cursor = 'grabbing'; e.preventDefault();
-  });
-  document.addEventListener('mousemove', function(e){
+    startX = getX(e); startPos = pos;
+  }
+  function onMove(e){
     if(!dragging) return;
-    var dx = e.clientX - startX;
+    var dx = getX(e) - startX;
     if(Math.abs(dx) > 4) didDrag = true;
-    wrap.scrollLeft = startScroll - dx;
-  });
-  document.addEventListener('mouseup', function(){
-    dragging = false; wrap.style.cursor = '';
-  });
-  wrap.addEventListener('click', function(e){
-    if(didDrag){ e.stopPropagation(); didDrag = false; }
-  }, true);
+    if(didDrag && e.cancelable) e.preventDefault();
+    pos = startPos + dx;
+    wrap_pos();
+    apply();
+  }
+  function onEnd(){ dragging = false; }
+
+  wrap.addEventListener('mousedown', onStart);
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('mouseup', onEnd);
+  wrap.addEventListener('touchstart', onStart, {passive:true});
+  wrap.addEventListener('touchmove', onMove, {passive:false});
+  wrap.addEventListener('touchend', onEnd);
+  wrap.addEventListener('click', function(e){ if(didDrag){ e.stopPropagation(); didDrag=false; }}, true);
 })();
 </script>
 
