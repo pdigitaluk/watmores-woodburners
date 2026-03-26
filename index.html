@@ -289,28 +289,6 @@
       <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-circular-light.jpg" alt="Chimney interior showing circular flue opening with light — HETAS chimney sweep, Norfolk" style="cursor:zoom-in"></div>
       <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-sooty-triangle.jpg" alt="Inside view of sooty chimney before professional chimney sweep — Norwich, Norfolk" style="cursor:zoom-in"></div>
       <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-circular-dark.jpg" alt="Chimney flue interior before professional sweep — Watmore's Woodburners, Norfolk" style="cursor:zoom-in"></div>
-      <!-- Duplicated for seamless loop -->
-      <div class="job-card"><img loading="lazy" src="images/jobs/installations/26.03.2026.jpeg" alt="Woodburner installation completed March 2026 — Watmore's Woodburners, Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/installations/stove-round-hearth-fire-burning.jpg" alt="Wood burning stove installation on round slate hearth with fire burning — Watmore's Woodburners, Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/installations/stove-white-surround-fire-burning.jpg" alt="Completed woodburner installation with white fireplace surround, fire lit — Norwich, Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/installations/stove-slate-back-panel-lounge.jpg" alt="Wood burning stove with black slate back panel installed in living room — Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/installations/stove-cylinder-corner-hearth-parquet.jpg" alt="Cylinder wood burning stove on curved black hearth over parquet flooring — Watmore's Woodburners" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/installations/stove-fireplace-beam-drylining-1.jpg" alt="Wood burning stove and fireplace beam installation with drylining — Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/installations/stove-fireplace-beam-drylining-2.jpg" alt="Close up of completed woodburner installation with oak fireplace beam — Watmore's Woodburners, Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/installations/stove-slate-hearth-ceiling-flue.jpg" alt="Black wood burning stove on slate hearth with twin wall flue through ceiling — Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/installations/stove-cylinder-glass-hearth-white-room.jpg" alt="Cylinder wood burning stove installed on glass hearth in white room — Norwich" style="object-position:bottom;cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/flue-work/flue-timber-cladding-wide.jpg" alt="External twin wall flue installation with timber cladding on Norfolk property — Watmore's Woodburners" style="object-position:center 20%;cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/flue-work/flue-external-black-brick-house.jpg" alt="External black twin wall flue installation on brick house — Norwich and Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/flue-work/flue-stainless-brick-exterior.jpg" alt="Stainless steel external flue on brick exterior — HETAS registered flue installation, Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/flue-work/flue-timber-cladding-side.jpg" alt="Side view of external flue installation with timber cladding — Norfolk chimney work" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/flue-work/flue-timber-cladding-close.jpg" alt="Close up of external flue with timber cladding finish — Watmore's Woodburners, Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/in-progress/steelwork-frame-front.jpg" alt="Steelwork lintel frame during woodburner installation — Watmore's Woodburners, Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/in-progress/steelwork-frame-room.jpg" alt="Steelwork frame and fireplace preparation in progress — Norfolk stove installation" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/in-progress/fireplace-opening-exposed.jpg" alt="Exposed fireplace opening during woodburner installation preparation — Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-soot-bucket.jpg" alt="Soot collected during professional chimney sweep — Watmore's Woodburners, Norwich" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-circular-light.jpg" alt="Chimney interior showing circular flue opening with light — HETAS chimney sweep, Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-sooty-triangle.jpg" alt="Inside view of sooty chimney before professional chimney sweep — Norwich, Norfolk" style="cursor:zoom-in"></div>
-      <div class="job-card"><img loading="lazy" src="images/jobs/chimney-sweep/chimney-interior-circular-dark.jpg" alt="Chimney flue interior before professional sweep — Watmore's Woodburners, Norfolk" style="cursor:zoom-in"></div>
     </div>
   </div>
 </section>
@@ -525,72 +503,25 @@
 <script>
 (function(){
   var wrap = document.querySelector('.jobs-marquee-wrap');
-  var track = document.querySelector('.jobs-marquee');
-  if(!wrap || !track) return;
-
-  var pos = 0, vel = 0, dragging = false;
-  var startX = 0, startPos = 0, prevX = 0, prevT = 0, didDrag = false;
-  var lastT = null;
-  var autoSpeed = 0; // px per ms — set after DOM paint
-
-  function tick(t){
-    if(lastT === null){ lastT = t; requestAnimationFrame(tick); return; }
-    var dt = Math.min(t - lastT, 64); lastT = t;
-    if(autoSpeed === 0) autoSpeed = track.scrollWidth / 2 / 180000;
-
-    if(!dragging){
-      pos -= autoSpeed * dt;
-      if(Math.abs(vel) > 0.01){
-        pos += vel * dt;
-        vel *= Math.pow(0.94, dt / 16);
-      } else {
-        vel = 0;
-      }
-    }
-
-    var half = track.scrollWidth / 2;
-    if(pos <= -half) pos += half;
-    if(pos > 0)      pos -= half;
-    track.style.transform = 'translateX(' + pos + 'px)';
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-
-  var grabStyle = document.createElement('style');
-  document.head.appendChild(grabStyle);
-
-  function getX(e){ return e.touches ? e.touches[0].clientX : e.clientX; }
-
-  function onStart(e){
+  if(!wrap) return;
+  var dragging = false, startX = 0, startScroll = 0, didDrag = false;
+  wrap.addEventListener('mousedown', function(e){
     dragging = true; didDrag = false;
-    startX = getX(e); startPos = pos;
-    prevX = startX; prevT = performance.now();
-    vel = 0;
-    grabStyle.textContent = '*{cursor:grabbing!important}';
-  }
-  function onMove(e){
+    startX = e.clientX; startScroll = wrap.scrollLeft;
+    wrap.style.cursor = 'grabbing'; e.preventDefault();
+  });
+  document.addEventListener('mousemove', function(e){
     if(!dragging) return;
-    var x = getX(e);
-    var dx = x - startX;
-    if(Math.abs(dx) > 4){ didDrag = true; if(e.cancelable) e.preventDefault(); }
-    pos = startPos + dx;
-    var now = performance.now();
-    vel = (x - prevX) / Math.max(now - prevT, 1);
-    prevX = x; prevT = now;
-  }
-  function onEnd(){
-    if(!dragging) return;
-    dragging = false;
-    grabStyle.textContent = '';
-  }
-
-  wrap.addEventListener('mousedown', onStart);
-  document.addEventListener('mousemove', onMove);
-  document.addEventListener('mouseup', onEnd);
-  wrap.addEventListener('touchstart', onStart, {passive: true});
-  wrap.addEventListener('touchmove', onMove, {passive: false});
-  wrap.addEventListener('touchend', onEnd);
-  wrap.addEventListener('click', function(e){ if(didDrag){ e.stopPropagation(); didDrag = false; }}, true);
+    var dx = e.clientX - startX;
+    if(Math.abs(dx) > 4) didDrag = true;
+    wrap.scrollLeft = startScroll - dx;
+  });
+  document.addEventListener('mouseup', function(){
+    dragging = false; wrap.style.cursor = '';
+  });
+  wrap.addEventListener('click', function(e){
+    if(didDrag){ e.stopPropagation(); didDrag = false; }
+  }, true);
 })();
 </script>
 
