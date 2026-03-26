@@ -213,7 +213,7 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 /* ── JOBS MARQUEE ── */
 @keyframes jobs-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes wave-dash{to{stroke-dashoffset:-640}}
-.jobs-marquee-wrap{overflow-x:auto;margin-top:2.5rem;cursor:grab;scrollbar-width:none;-ms-overflow-style:none}
+.jobs-marquee-wrap{overflow-x:auto;margin-top:2.5rem;cursor:grab;scrollbar-width:none;-ms-overflow-style:none;touch-action:pan-x}
 .jobs-marquee-wrap::-webkit-scrollbar{display:none}
 .jobs-marquee{display:flex;gap:1.25rem;width:max-content;position:relative}
 .job-card{background:var(--white);border:1px solid var(--border);overflow:hidden;flex:0 0 300px;position:relative}
