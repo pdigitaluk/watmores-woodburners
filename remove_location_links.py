@@ -2,9 +2,13 @@ import os, re
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
-START = '      <div>\n        <div class="f-heading">Chimney Sweeping</div>'
-END   = '      </div>\n    <hr class="footer-divider">'
-CLEAN = '    <hr class="footer-divider">'
+# Match from the opening <div> of the Chimney Sweeping column through
+# to the closing </div> of the Woodburner Installation column,
+# stopping just before <hr class="footer-divider">
+PATTERN = re.compile(
+    r'\s*<div>\s*<div class="f-heading">Chimney Sweeping</div>.*?</div>\s*<div>\s*<div class="f-heading">Woodburner Installation</div>.*?</div>',
+    re.DOTALL
+)
 
 pages = []
 root_html = os.path.join(BASE, 'index.html')
@@ -19,14 +23,12 @@ updated = 0
 for path in pages:
     with open(path, 'r', encoding='utf-8') as f:
         html = f.read()
-    if START not in html:
+    if 'f-heading">Chimney Sweeping' not in html:
         continue
-    # Remove everything from START up to and including the closing </div> before the hr
-    new_html = re.sub(
-        r'      <div>\s*<div class="f-heading">Chimney Sweeping</div>.*?</div>\s*</div>\s*<hr class="footer-divider">',
-        '    <hr class="footer-divider">',
-        html, flags=re.DOTALL
-    )
+    new_html = PATTERN.sub('', html)
+    if new_html == html:
+        print(f"NO MATCH: {os.path.relpath(path, BASE)}")
+        continue
     with open(path, 'w', encoding='utf-8') as f:
         f.write(new_html)
     updated += 1
