@@ -449,7 +449,7 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .footer-top{margin-bottom:3rem}
 
   /* ── HERO ── */
-  .hero{padding-bottom:3.5rem}
+  .hero{padding-bottom:3.5rem;justify-content:center;padding-top:6rem;min-height:0}
   .hero-inner-page{padding-top:6rem;padding-bottom:3.5rem}
   .hero h1{font-size:2.4rem;letter-spacing:-0.5px}
   .hero-inner-page h1{font-size:2.1rem;letter-spacing:-0.5px}
@@ -604,10 +604,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   filter: blur(6px);
   animation: smoke-rise linear infinite;
 }
-@media (max-width: 768px) {
-  #embers { display: none; }
-  .ember, .smoke-particle { animation: none; display: none; }
-}
+
 @media (prefers-reduced-motion: reduce) {
   .ember, .smoke-particle { animation: none; }
 }
