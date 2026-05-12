@@ -610,7 +610,7 @@
   function apply(){ track.style.transform = 'translateX('+pos+'px)'; }
 
   function tick(){
-    if(!dragging && !paused){ pos -= speed; clamp(); apply(); }
+    if(!document.hidden && !dragging && !paused){ pos -= speed; clamp(); apply(); }
     requestAnimationFrame(tick);
   }
 
@@ -624,7 +624,7 @@
     if(!dragging) return;
     var dx = getX(e) - startX;
     if(Math.abs(dx) > 4) didDrag = true;
-    if(didDrag && e.cancelable) e.preventDefault();
+    /* passive listener — cannot preventDefault, scroll handled natively */
     pos = startPos + dx;
     clamp(); apply();
   }
@@ -636,7 +636,7 @@
   document.addEventListener('mousemove', onMove);
   document.addEventListener('mouseup', onEnd);
   wrap.addEventListener('touchstart', onStart, {passive:true});
-  wrap.addEventListener('touchmove', onMove, {passive:false});
+  wrap.addEventListener('touchmove', onMove, {passive:true});
   wrap.addEventListener('touchend', onEnd);
   wrap.addEventListener('click', function(e){ if(didDrag){ e.stopPropagation(); didDrag=false; }}, true);
 

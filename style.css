@@ -587,6 +587,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   border-radius: 50%;
   pointer-events: none;
   animation: ember-fall linear infinite;
+  will-change: transform;
 }
 @keyframes smoke-rise {
   0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
@@ -602,6 +603,10 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   background: rgba(255,255,255,0.25);
   filter: blur(6px);
   animation: smoke-rise linear infinite;
+}
+@media (max-width: 768px) {
+  #embers { display: none; }
+  .ember, .smoke-particle { animation: none; display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ember, .smoke-particle { animation: none; }
