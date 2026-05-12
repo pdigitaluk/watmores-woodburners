@@ -149,6 +149,10 @@
                   <label for="qf-email">Email</label>
                   <input type="email" id="qf-email" name="email" placeholder="Your email address" required>
                 </div>
+                <div class="qf-field">
+                  <label for="qf-postcode">Postcode</label>
+                  <input type="text" id="qf-postcode" name="postcode" placeholder="Your postcode" required>
+                </div>
 
               </div>
               <button class="qf-btn" type="submit">Send Enquiry →</button>
@@ -342,10 +346,11 @@
     submitBtn.textContent = 'Sending…';
 
     var payload = {
-      name:    document.getElementById('qf-name').value,
-      phone:   document.getElementById('qf-phone').value,
-      email:   document.getElementById('qf-email').value,
-      service: svcField.value
+      name:     document.getElementById('qf-name').value,
+      phone:    document.getElementById('qf-phone').value,
+      email:    document.getElementById('qf-email').value,
+      postcode: document.getElementById('qf-postcode').value,
+      service:  svcField.value
     };
 
     fetch('https://services.leadconnectorhq.com/hooks/fgzfIxyzG43iK5ACUnjL/webhook-trigger/51467afb-2f41-4da8-aefb-caf6b14a8e8d', {
