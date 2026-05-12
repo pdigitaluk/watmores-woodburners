@@ -304,21 +304,23 @@
   var tabs     = document.querySelectorAll('.qf-tab');
   var svcField = document.getElementById('qf-service-field');
   var svcDisp  = document.getElementById('qf-service-display');
-  var selected = null;
+  var selected = [];
 
   options.forEach(function(opt){
     opt.addEventListener('click', function(){
-      options.forEach(function(o){ o.classList.remove('selected'); });
-      opt.classList.add('selected');
-      selected = opt.dataset.service;
-      btnNext.disabled = false;
+      opt.classList.toggle('selected');
+      var svc = opt.dataset.service;
+      var idx = selected.indexOf(svc);
+      if (idx === -1) selected.push(svc);
+      else selected.splice(idx, 1);
+      btnNext.disabled = selected.length === 0;
     });
   });
 
   btnNext.addEventListener('click', function(){
-    if(!selected) return;
-    svcField.value = selected;
-    svcDisp.textContent = selected;
+    if(!selected.length) return;
+    svcField.value = selected.join(', ');
+    svcDisp.textContent = selected.join(', ');
     step1.classList.remove('active');
     step2.classList.add('active');
     tabs[0].classList.remove('active');
