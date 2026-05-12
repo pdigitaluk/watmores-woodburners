@@ -87,12 +87,13 @@ nav.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45
 .hero-chimney .hero-teal-bar{background:var(--flame)}
 
 /* ── STRIP ── */
-.strip{background:var(--teal);padding:1.25rem 3.5rem;display:flex;align-items:center;justify-content:center;gap:4rem;overflow:hidden}
+.strip{background:var(--teal);padding:1.25rem 3.5rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.strip-inner{display:flex;align-items:center;gap:4rem}
 .strip-track{display:contents}
 .strip-track+.strip-track{display:none}
 .strip-item{font-size:0.65rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,0.85);display:flex;align-items:center;gap:0.6rem;white-space:nowrap;flex-shrink:0}
 .strip-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.4);flex-shrink:0}
-@keyframes strip-marquee{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+@keyframes strip-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 
 /* ── SECTIONS ── */
 .sec{padding:7rem 3.5rem}
@@ -406,7 +407,8 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   nav{padding:0 2rem}
   .hero-inner-page{padding-top:8rem}
   .hero,.hero-inner-page,.sec,.cta-band,footer{padding-left:2rem;padding-right:2rem}
-  .strip{padding:1.25rem 3.5rem;gap:3rem}
+  .strip{padding:1.25rem 2.5rem}
+  .strip-inner{gap:3rem}
   .hero-inner{grid-template-columns:1fr}
   .hero-aside{display:none}
   .services-grid,.stove-grid,.pricing-grid,.why-grid,.included-grid,.pkg-grid,.jobs-grid{grid-template-columns:repeat(2,1fr)}
@@ -463,8 +465,9 @@ footer ul li.info{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.18)
   .sec-sub{margin-bottom:2.5rem}
 
   /* ── STRIP ── */
-  .strip{padding:0;gap:0;justify-content:flex-start}
-  .strip-track{display:flex;align-items:center;gap:2rem;padding:1.25rem 2rem;animation:strip-marquee 10s linear infinite}
+  .strip{padding:0;justify-content:flex-start}
+  .strip-inner{gap:0;width:max-content;animation:strip-marquee 14s linear infinite;will-change:transform;backface-visibility:hidden}
+  .strip-track{display:flex;align-items:center;gap:2rem;padding:1.25rem 2rem}
   .strip-track+.strip-track{display:flex}
   .strip-dot{display:flex}
 
